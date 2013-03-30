@@ -4,6 +4,7 @@
 /.config.cmd
 /.config.old
 /.config
+/..config.tmp
 *.depend
 *.o
 *.orig

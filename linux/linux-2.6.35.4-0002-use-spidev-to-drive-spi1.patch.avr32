@@ -1,0 +1,25 @@
+From 2b77aff9770f8a674bf18e38f326e1393a141da6 Mon Sep 17 00:00:00 2001
+From: Alan Marshall <alangm1001@gmail.com>
+Date: Wed, 30 Nov 2011 10:26:52 +0000
+Subject: [PATCH 2/2] use spidev to drive spi1 	modified:   setup.c
+
+---
+ arch/avr32/boards/atngw100/setup.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/arch/avr32/boards/atngw100/setup.c b/arch/avr32/boards/atngw100/setup.c
+index 0425699..ae2968d 100644
+--- a/arch/avr32/boards/atngw100/setup.c
++++ b/arch/avr32/boards/atngw100/setup.c
+@@ -121,7 +121,7 @@ static struct spi_board_info spi0_board_info[] __initdata = {
+ 
+ static struct spi_board_info spi1_board_info[] __initdata = {
+ 	{
+-		.modalias	= "dpi_spi",
++		.modalias	= "spidev",
+ 		.max_speed_hz	= 8000000,
+ 		.chip_select	= 0,
+ 	},
+-- 
+1.7.4.4
+

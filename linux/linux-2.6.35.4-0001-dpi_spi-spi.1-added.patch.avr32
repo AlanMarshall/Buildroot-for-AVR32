@@ -1,0 +1,39 @@
+From 8fd39715d390f1fbe6cd612927c339e291dcab35 Mon Sep 17 00:00:00 2001
+From: Alan Marshall <alangm1001@gmail.com>
+Date: Tue, 15 Nov 2011 15:06:56 +0000
+Subject: [PATCH 1/2] dpi_spi spi.1 added
+
+---
+ arch/avr32/boards/atngw100/setup.c |    9 +++++++++
+ 1 files changed, 9 insertions(+), 0 deletions(-)
+
+diff --git a/arch/avr32/boards/atngw100/setup.c b/arch/avr32/boards/atngw100/setup.c
+index 1f17bde..0425699 100644
+--- a/arch/avr32/boards/atngw100/setup.c
++++ b/arch/avr32/boards/atngw100/setup.c
+@@ -119,6 +119,14 @@ static struct spi_board_info spi0_board_info[] __initdata = {
+ 	},
+ };
+ 
++static struct spi_board_info spi1_board_info[] __initdata = {
++	{
++		.modalias	= "dpi_spi",
++		.max_speed_hz	= 8000000,
++		.chip_select	= 0,
++	},
++};
++
+ static struct mci_platform_data __initdata mci0_data = {
+ 	.slot[0] = {
+ 		.bus_width	= 4,
+@@ -266,6 +274,7 @@ static int __init atngw100_init(void)
+ #endif
+ 
+ 	at32_add_device_spi(0, spi0_board_info, ARRAY_SIZE(spi0_board_info));
++	at32_add_device_spi(1, spi1_board_info, ARRAY_SIZE(spi1_board_info));
+ 	at32_add_device_mci(0, &mci0_data);
+ 	at32_add_device_usba(0, &atngw100_usba_data);
+ 
+-- 
+1.7.4.4
+
